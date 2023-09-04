@@ -3,8 +3,17 @@ var score = 0;
 var targetNum = 0;
 let suggested = document.querySelector("#target");
 
+var audio = document.getElementById("audio");
+var ohNo = document.getElementById("ohNo");
+var gameOver = document.getElementById("gameOver");
+
+window.onload = () => {
+  audio.play();
+}
+
 // Increase score to 10 while right clicked
 function increaseScore() {
+  audio.play();
   score += 10;
   document.querySelector("#score").innerHTML = score;
 }
@@ -36,10 +45,13 @@ function runTimer() {
       document.querySelector("#timer").textContent = timer;
     } else {
       clearInterval(timerInterval); // Clearing interval time so that it can't be negative like -1, -10
+      gameOver.play();
       suggested.classList.remove("hit");
       document.querySelector('#body').innerHTML = `
+      <div class='message'>
         <div class="over">Game Over</div>
         <div id="startNew">Start New</div>
+      </div>
       `; // Setting game over message and start new button
       document.querySelector("#target").innerHTML = 0; // setting target value to zero
 
@@ -58,9 +70,11 @@ function runTimer() {
 document.querySelector('#body').addEventListener("click", function(details) {
   var clicked = Number(details.target.textContent);
   if(targetNum === clicked) {
-    increaseScore()
-    createBubbles()
-    target()
+    increaseScore();
+    createBubbles();
+    target();
+  } else {
+    ohNo.play();
   }
 });
 
