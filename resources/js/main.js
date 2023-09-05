@@ -8,7 +8,14 @@ var ohNo = document.getElementById("ohNo");
 var gameOver = document.getElementById("gameOver");
 
 window.onload = () => {
-  audio.play();
+  setTarget();
+  runTimer();
+  createBubbles();
+  main();
+}
+
+function main() {
+
 }
 
 // Increase score to 10 while right clicked
@@ -19,7 +26,7 @@ function increaseScore() {
 }
 
 // Set the targeted Clik
-function target() {
+function setTarget() {
   targetNum = Math.floor(Math.random() * 10);
   suggested.innerHTML = targetNum;
   suggested.classList.add("hit")
@@ -57,9 +64,9 @@ function runTimer() {
 
       // if clicked to startNew button
       document.querySelector('#startNew').addEventListener("click", function() {
-        document.querySelector("#timer").textContent = 30;
+        document.querySelector("#timer").textContent = 60;
         createBubbles();
-        target();
+        setTarget();
         timer = 60;
         runTimer();
       });
@@ -72,12 +79,8 @@ document.querySelector('#body').addEventListener("click", function(details) {
   if(targetNum === clicked) {
     increaseScore();
     createBubbles();
-    target();
+    setTarget();
   } else {
     ohNo.play();
   }
 });
-
-target()
-runTimer()
-createBubbles()

@@ -1,3 +1,7 @@
+@font-face {
+  font-family: MistyBlack;
+  src: url("/resources/fonts/MistyBlack.ttf");
+}
 * {
   margin: 0;
   padding: 0;
@@ -19,6 +23,7 @@ html, body {
   width: 100%;
   height: 100%;
   background: #1c5086;
+  padding: 1em;
 }
 #main #header {
   padding: 1em;
@@ -27,10 +32,9 @@ html, body {
   align-items: center;
   gap: 0.5em;
   color: #fff;
-  width: 95%;
-  /* height: 150px; */
+  width: 100%;
   border-radius: 10px;
-  background: rgba(16, 46, 77, 0.75);
+  background: rgba(0, 0, 0, 0.5);
 }
 #main #header .info {
   display: flex;
@@ -60,8 +64,8 @@ html, body {
 }
 #main #panel {
   overflow: hidden;
-  width: 95%;
-  height: calc(95% - 100px);
+  width: 100%;
+  height: calc(100% - 100px);
   background: white;
   border-radius: 10px;
 }
@@ -73,21 +77,20 @@ html, body {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 0.75em;
+  gap: 1em;
 }
 #main #panel #body .message {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
   gap: 1em;
-  padding: 1em;
   height: 100%;
 }
 #main #panel #body .message .over {
+  font-family: "MistyBlack", sans-serif;
   font-size: 3em;
-  color: rgb(246, 61, 98);
+  color: rgb(255, 255, 255);
   font-weight: 700;
 }
 #main #panel #body .message #startNew {
