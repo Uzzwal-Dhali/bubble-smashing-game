@@ -58,14 +58,14 @@ html, body {
   font-weight: 400;
   text-transform: uppercase;
 }
-#main #panel1 {
+#main #panel {
   overflow: hidden;
   width: 95%;
   height: calc(95% - 100px);
   background: white;
   border-radius: 10px;
 }
-#main #panel1 #body {
+#main #panel #body {
   height: 100%;
   padding: 1em;
   background: #0c253e;
@@ -75,7 +75,7 @@ html, body {
   align-items: center;
   gap: 0.75em;
 }
-#main #panel1 #body .message {
+#main #panel #body .message {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -85,12 +85,12 @@ html, body {
   padding: 1em;
   height: 100%;
 }
-#main #panel1 #body .message .over {
+#main #panel #body .message .over {
   font-size: 3em;
   color: rgb(246, 61, 98);
   font-weight: 700;
 }
-#main #panel1 #body .message #startNew {
+#main #panel #body .message #startNew {
   background: teal;
   padding: 0.75em 1.7em;
   border-radius: 0.5em;
@@ -98,12 +98,12 @@ html, body {
   font-weight: 600;
   transition: all 0.3s ease-in;
 }
-#main #panel1 #body .message #startNew:hover {
+#main #panel #body .message #startNew:hover {
   cursor: pointer;
   background: rgb(1, 86, 86);
   letter-spacing: 0.1em;
 }
-#main #panel1 #body .ball {
+#main #panel #body .ball {
   font-family: "Roboto", sans-serif;
   display: flex;
   justify-content: center;
@@ -115,12 +115,12 @@ html, body {
   background: radial-gradient(circle at bottom, #81e8f6, #76deef 10%, #055194 80%, #062745 100%);
   transition: all 0.2s ease-in;
 }
-#main #panel1 #body .ball text {
+#main #panel #body .ball text {
   font-size: 1.5em;
   font-weight: 700;
   color: #27425e;
 }
-#main #panel1 #body .ball:before {
+#main #panel #body .ball:before {
   content: "";
   position: absolute;
   top: 1%;
@@ -132,7 +132,7 @@ html, body {
   filter: blur(5px);
   z-index: 2;
 }
-#main #panel1 #body .ball:after {
+#main #panel #body .ball:after {
   content: "";
   position: absolute;
   display: none;
@@ -145,7 +145,7 @@ html, body {
   z-index: 2;
   transform: rotateZ(-30deg);
 }
-#main #panel1 #body .ball .shadow {
+#main #panel #body .ball .shadow {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -153,27 +153,27 @@ html, body {
   transform: rotateX(90deg) translateZ(-160px);
   z-index: 1;
 }
-#main #panel1 #body .ball.plain {
+#main #panel #body .ball.plain {
   background: black;
 }
-#main #panel1 #body .ball.plain:before, #main #panel1 #body .ball.plain:after {
+#main #panel #body .ball.plain:before, #main #panel #body .ball.plain:after {
   display: none;
 }
-#main #panel1 #body .ball.bubble {
+#main #panel #body .ball.bubble {
   background: radial-gradient(circle at 50% 55%, rgba(240, 245, 255, 0.9), rgba(240, 245, 255, 0.9) 40%, rgba(225, 238, 255, 0.8) 60%, rgba(43, 130, 255, 0.4));
 }
-#main #panel1 #body .ball.bubble:before {
+#main #panel #body .ball.bubble:before {
   filter: blur(0);
   height: 80%;
   width: 40%;
   background: radial-gradient(circle at 130% 130%, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0) 46%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0.8) 58%, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0) 100%);
   transform: translateX(131%) translateY(58%) rotateZ(168deg) rotateX(10deg);
 }
-#main #panel1 #body .ball.bubble:after {
+#main #panel #body .ball.bubble:after {
   display: block;
   background: radial-gradient(circle at 50% 80%, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0) 74%, white 80%, white 84%, rgba(255, 255, 255, 0) 100%);
 }
-#main #panel1 #body .ball:hover {
+#main #panel #body .ball:hover {
   cursor: pointer;
   animation: bubble-animation 2s ease-out infinite;
 }
@@ -209,5 +209,26 @@ html, body {
   }
   100% {
     transform: scale(1);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #main #panel #body {
+    padding: 1.5em;
+    gap: 1.5em;
+  }
+  #main #panel #body .ball {
+    height: 5.6em;
+    width: 5.6em;
+  }
+}
+@media screen and (min-width: 1400px) {
+  #main #panel #body {
+    padding: 1.5em;
+    gap: 1.5em;
+  }
+  #main #panel #body .ball {
+    height: 8.5em;
+    width: 8.5em;
   }
 }/*# sourceMappingURL=styles.css.map */

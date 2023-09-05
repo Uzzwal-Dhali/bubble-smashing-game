@@ -18,8 +18,7 @@ html, body {
   gap: 1em;
   width: 100%;
   height: 100%;
-  background: #1c5086
-;
+  background: #1c5086;
   #header {
     padding: 1em;
     display: grid;
@@ -59,7 +58,7 @@ html, body {
     }
 
   }
-  #panel1 {
+  #panel {
     overflow: hidden;
     width: 95%;
     height: calc(95% - 100px);
@@ -224,6 +223,36 @@ html, body {
         }
         100% {
           transform: scale(1);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #main {
+    #panel {
+      #body {
+        padding: 1.5em;
+        gap: 1.5em;
+        .ball {
+          height: 5.6em;
+          width: 5.6em;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  #main {
+    #panel {
+      #body {
+        padding: 1.5em;
+        gap: 1.5em;
+        .ball {
+          height: 8.5em;
+          width: 8.5em;
         }
       }
     }
