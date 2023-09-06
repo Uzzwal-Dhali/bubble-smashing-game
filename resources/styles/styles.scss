@@ -2,6 +2,10 @@
   font-family: MistyBlack;
   src: url('/resources/fonts/MistyBlack.ttf');
 }
+@font-face {
+  font-family: MetalLord;
+  src: url('/resources/fonts/metal_lord.otf');
+}
 
 * {
   margin: 0;
@@ -24,8 +28,13 @@ html, body {
   height: 100%;
   background: #1c5086;
   padding: 1em;
+  .game_title {
+    color: #fff;
+    font-size: 2.5em;
+    font-family: 'MetalLord', sans-serif;
+    margin-top: 0.75em;
+  }
   #header {
-    padding: 1em;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
@@ -33,7 +42,6 @@ html, body {
     color: #fff;
     width: 100%;
     border-radius: 10px;
-    background: rgba(0, 0, 0, 0.5);
     .info {
       display: flex;
       flex-direction: column;
@@ -43,7 +51,7 @@ html, body {
         justify-content: center;
         color: white;
         font-weight: 700;
-        font-size: 3em;
+        font-size: 2em;
         line-height: 1;
         font-family: 'Roboto', sans-serif;
       }
@@ -51,11 +59,12 @@ html, body {
         animation: hitAnimation 2s ease-out infinite;
       }
       .title {
+        color: rgba(225, 238, 255, 0.8);
         display: flex;
         align-items: center;
         justify-content: center;
         font-family: "Raleway", sans-serif;
-        font-size: 1.3em;
+        font-size: 1.1em;
         font-weight: 400;
         text-transform: uppercase;
       }
@@ -75,7 +84,7 @@ html, body {
       flex-wrap: wrap;
       justify-content: center;
       align-items: center;
-      gap: 1em;
+      gap: 0.75em;
       .message {
         display: flex;
         flex-direction: column;
@@ -89,18 +98,36 @@ html, body {
           color: rgb(255, 255, 255);
           font-weight: 700;
         }
-        #startNew {
-          background: teal;
-          padding: 0.75em 1.7em;
-          border-radius: 0.5em;
-          color: #fff;
-          font-weight: 600;
-          transition: all 0.3s ease-in;
-        }
-        #startNew:hover {
-          cursor: pointer;
-          background: rgb(1, 86, 86);
-          letter-spacing: 0.1em;
+        .buttons_wrapper {
+          display: flex;
+          gap: 0.25em;
+          #startNew {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: teal;
+            padding: 0.75em 1.7em;
+            border-radius: 0.5em;
+            color: #fff;
+            font-weight: 600;
+            transition: all 0.3s ease-in;
+          }
+          #startNew:hover {
+            cursor: pointer;
+            background: rgb(1, 86, 86);
+            letter-spacing: 0.1em;
+          }
+          #reset {
+            cursor: pointer;
+            background: teal;
+            border-radius: 0.5em;
+            padding: 1em;
+            width: 3em;
+            height: 3em;
+            svg {
+              stroke-width: 0.15em;
+            }
+          }
         }
       }
       .ball {
