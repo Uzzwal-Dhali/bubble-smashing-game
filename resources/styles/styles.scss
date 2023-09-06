@@ -36,37 +36,41 @@ html, body {
   }
   #header {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 2fr 1fr;
     align-items: center;
     gap: 0.5em;
     color: #fff;
     width: 100%;
     border-radius: 10px;
-    .info {
+    .infos {
       display: flex;
-      flex-direction: column;
-      .number {
+      justify-content: space-between;
+      .info {
         display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-weight: 700;
-        font-size: 2em;
-        line-height: 1;
-        font-family: 'Roboto', sans-serif;
-      }
-      .hit {
-        animation: hitAnimation 2s ease-out infinite;
-      }
-      .title {
-        color: rgba(225, 238, 255, 0.8);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-family: "Raleway", sans-serif;
-        font-size: 1.1em;
-        font-weight: 400;
-        text-transform: uppercase;
+        flex-direction: column;
+        .number {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          font-weight: 700;
+          font-size: 2em;
+          line-height: 1;
+          font-family: 'Roboto', sans-serif;
+        }
+        .hit {
+          animation: hitAnimation 2s ease-out infinite;
+        }
+        .title {
+          color: rgba(225, 238, 255, 0.8);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-family: "Raleway", sans-serif;
+          font-size: 1.1em;
+          font-weight: 400;
+          text-transform: uppercase;
+        }
       }
     }
   }
@@ -269,10 +273,10 @@ html, body {
     #panel {
       #body {
         padding: 1.5em;
-        gap: 1.5em;
+        gap: 1.4em;
         .ball {
-          height: 5.6em;
-          width: 5.6em;
+          height: 5.4em;
+          width: 5.4em;
         }
       }
     }

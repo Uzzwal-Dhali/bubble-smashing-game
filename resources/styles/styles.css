@@ -37,18 +37,22 @@ html, body {
 }
 #main #header {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 2fr 1fr;
   align-items: center;
   gap: 0.5em;
   color: #fff;
   width: 100%;
   border-radius: 10px;
 }
-#main #header .info {
+#main #header .infos {
+  display: flex;
+  justify-content: space-between;
+}
+#main #header .infos .info {
   display: flex;
   flex-direction: column;
 }
-#main #header .info .number {
+#main #header .infos .info .number {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -58,10 +62,10 @@ html, body {
   line-height: 1;
   font-family: "Roboto", sans-serif;
 }
-#main #header .info .hit {
+#main #header .infos .info .hit {
   animation: hitAnimation 2s ease-out infinite;
 }
-#main #header .info .title {
+#main #header .infos .info .title {
   color: rgba(225, 238, 255, 0.8);
   display: flex;
   align-items: center;
@@ -252,11 +256,11 @@ html, body {
 @media screen and (min-width: 768px) {
   #main #panel #body {
     padding: 1.5em;
-    gap: 1.5em;
+    gap: 1.4em;
   }
   #main #panel #body .ball {
-    height: 5.6em;
-    width: 5.6em;
+    height: 5.4em;
+    width: 5.4em;
   }
 }
 @media screen and (min-width: 1400px) {
