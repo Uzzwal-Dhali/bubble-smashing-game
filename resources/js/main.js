@@ -1,11 +1,15 @@
-var timer = 10;
+var timer = 60;
 var score = 0;
 var targetNum = 0;
 let suggested = document.querySelector("#target");
+let currentScore = document.querySelector("#score");
 
 var audio = document.getElementById("audio");
 var ohNo = document.getElementById("ohNo");
 var gameOver = document.getElementById("gameOver");
+
+let bubblesWrapper = document.getElementById('body');
+let gameOverMsg = document.querySelector('.message');
 
 window.onload = () => {
   setTarget();
@@ -18,17 +22,23 @@ function main() {
 
 }
 
-if(timer === 0) {
-    document.getElementById("reset").addEventListener('click', function() {
-      alert('Ok');
-    });
-  }
+document.getElementById("reset").addEventListener('click', function() {
+  currentScore.innerHTML = 0;
+  bubblesWrapper.classList.remove('hide');
+  gameOverMsg.classList.remove('show');
+  document.querySelector("#timer").textContent = 60;
+  score = 0;
+  createBubbles();
+  setTarget();
+  timer = 60;
+  runTimer();
+});
 
 // Increase score to 10 while right clicked
 function increaseScore() {
   audio.play();
   score += 10;
-  document.querySelector("#score").innerHTML = score;
+  currentScore.innerHTML = score;
 }
 
 // Creating bubbles
@@ -60,30 +70,23 @@ function runTimer() {
       clearInterval(timerInterval); // Clearing interval time so that it can't be negative like -1, -10
       gameOver.play();
       suggested.classList.remove("hit");
-      document.querySelector('#body').innerHTML = `
-      <div class='message'>
-        <div class="over">Game Over</div>
-        <div class="buttons_wrapper">
-          <div id="startNew">Start New</div>
-          <div id="reset">
-            <svg viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg" fill="#fff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g fill="none" fill-rule="evenodd" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" transform="matrix(0 1 1 0 2.5 2.5)"> <path d="m3.98652376 1.07807068c-2.38377179 1.38514556-3.98652376 3.96636605-3.98652376 6.92192932 0 4.418278 3.581722 8 8 8s8-3.581722 8-8-3.581722-8-8-8"></path> <path d="m4 1v4h-4" transform="matrix(1 0 0 -1 0 6)"></path> </g> </g></svg>
-          </div>
-        </div>
-      </div>
-      `; // Setting game over message and start new button
+      bubblesWrapper.classList.add('hide');
+      gameOverMsg.classList.add('show');
       document.querySelector("#target").innerHTML = 0; // setting target value to zero
-
-      // if clicked to startNew button
-      document.querySelector('#startNew').addEventListener("click", function() {
-        document.querySelector("#timer").textContent = 60;
-        createBubbles();
-        setTarget();
-        timer = 10;
-        runTimer();
-      });
     }
   }, 1000)
 }
+
+// if clicked to startNew button
+document.querySelector('#startNew').addEventListener("click", function() {
+  bubblesWrapper.classList.remove('hide');
+  gameOverMsg.classList.remove('show');
+  document.querySelector("#timer").textContent = 60;
+  createBubbles();
+  setTarget();
+  timer = 60;
+  runTimer();
+});
 
 document.querySelector('#body').addEventListener("click", function(details) {
   var clicked = Number(details.target.textContent);
